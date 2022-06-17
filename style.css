@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding-top: 10px;
+    background-color: black;
+    font-size: x-large;
+    color: green;
+    font-weight: bold;
+}
+
+input[type=submit] {
+    display: none;
+}
+
+.prompt {
+    float: left;
+    margin-right: 10px;
+}
+
+.line {
+    overflow: hidden;
+    display: block;   
+}
+
+#line {
+    width: 100%;
+    background-color: black;
+    border-width: 0px;
+    border: none;
+    color: green;
+    font-size: x-large;
+    outline: 0;
+    font-weight: bold;
+}

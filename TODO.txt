@@ -1,0 +1,7 @@
+- Main function print to the output
+- Prompt and textarea on the same level
+- Ascii art on the entering the page
+- Commands on arrow keys
+- Ctrl + l (clear scren)
+- Vim mode
+- Matrix effect
