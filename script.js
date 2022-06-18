@@ -1,21 +1,27 @@
 const line = document.getElementById('line');
-const send = document.getElementById('send');
 let actual_command = "";
+
 
 line.addEventListener("keypress", function (event) {
     if (line.value != '' && event.key === "Enter") {
         event.preventDefault();
 		actual_command = line.value;
+		createPrompt(actual_command);
         commands(line.value);
         line.value = '';
     }
 }); 
 
+function asciiWelcome(){
+  return 0;
+}
+
 function output(textNode) {
     const newDiv = document.createElement("div");
 	newDiv.appendChild(textNode);
-    const currentDiv = document.getElementById('input');
-    currentDiv.before(newDiv);
+
+    const currentDiv = document.getElementById('output');
+    currentDiv.appendChild(newDiv);
 }
 
 function commands(text) {
@@ -29,8 +35,8 @@ function commands(text) {
         case 'projects':
             projects();
             break;
-        case 'social':
-            social();
+        case 'socials':
+            socials();
             break;
         case 'neofetch':
             neofetch()
@@ -43,33 +49,45 @@ function commands(text) {
 function unknown_command(text) {
 	const message = "Unknown command: " + text;
 	const textNode = document.createTextNode(message);
-	return output(textNode);
+	output(textNode);
 }
 
 function help() {
     const commands = ['clear', 'projects', 'social', 'neofetch'];
-
 	for (let i in commands) {
 	  const textNode = document.createTextNode(commands[i]);
 	  output(textNode);
 	}
 }
 
-function social() {
-    const socials = ['fb', 'github', 'yt'];
-
-	for (let i in socials) {
-	  const textNode = document.createTextNode(socials[i]);
+function socials() {
+    const socialsArray = ['fb', 'github', 'yt'];
+	for (let i in socialsArray) {
+	  const textNode = document.createTextNode(socialsArray[i]);
 	  output(textNode);
 	}
 }
 
 function createPrompt(command) {
 	const prompt = document.createElement("label");
-	const textNode = document.createTextNode("[relow@arch /home/relow]");
+	const textNodePrompt = document.createTextNode("[relow@arch /home/relow]");
+	const textNodeCommand = document.createTextNode(command);
+	const newDiv = document.createElement("div");
+
 	prompt.className = "prompt";
 	prompt.htmlFor = "line";
-	prompt.appendChild(textNode);
+	prompt.appendChild(textNodePrompt);
 
-	return prompt;
+	newDiv.appendChild(prompt);
+	newDiv.appendChild(textNodeCommand);
+	
+    const currentDiv = document.getElementById('output');
+    currentDiv.appendChild(newDiv);
+}
+
+function clear() {
+  const outputDiv = document.getElementById('output');
+  while (outputDiv.hasChildNodes()){
+	outputDiv.removeChild(outputDiv.firstChild);
+  }
 }
