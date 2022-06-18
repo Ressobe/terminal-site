@@ -70,7 +70,7 @@ function socials() {
 
 function createPrompt(command) {
 	const prompt = document.createElement("label");
-	const textNodePrompt = document.createTextNode("[relow@arch /home/relow]");
+	const textNodePrompt = document.createTextNode("visitor@relow.com:~$ ");
 	const textNodeCommand = document.createTextNode(command);
 	const newDiv = document.createElement("div");
 
