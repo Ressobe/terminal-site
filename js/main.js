@@ -17,7 +17,7 @@ function asciiWelcome(){
 }
 
 function output(textNode) {
-    const newDiv = document.createElement("div");
+    const newDiv = document.createElement("p");
 	newDiv.appendChild(textNode);
 
     const currentDiv = document.getElementById('output');
@@ -53,7 +53,14 @@ function unknown_command(text) {
 }
 
 function help() {
-    const commands = ['clear', 'projects', 'social', 'neofetch'];
+    const commands = [
+	  'clear 				clear terminal screen',
+	  'projects 			display my projects',
+	  'socials 				links to my socials',
+	  'neofetch 			display info about my hardware',
+	  'cmatrix 				matrix effect'
+	]
+
 	for (let i in commands) {
 	  const textNode = document.createTextNode(commands[i]);
 	  output(textNode);
@@ -70,7 +77,7 @@ function socials() {
 
 function createPrompt(command) {
 	const prompt = document.createElement("label");
-	const textNodePrompt = document.createTextNode("visitor@relow.com:~$ ");
+	const textNodePrompt = document.createTextNode("visitor@relow.com:~$");
 	const textNodeCommand = document.createTextNode(command);
 	const newDiv = document.createElement("div");
 

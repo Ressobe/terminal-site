@@ -14,7 +14,7 @@ input[type=submit] {
 .prompt {
     float: left;
     margin-right: 10px;
-	padding: 3px;
+	padding: 0 2px 0 2px;
 }
 
 .line {
