@@ -17,8 +17,8 @@ function asciiWelcome(){
 }
 
 function output(textNode) {
-    const newDiv = document.createElement("p");
-	newDiv.appendChild(textNode);
+    const newDiv = document.createElement("div");
+	newDiv.innerHTML = textNode
 
     const currentDiv = document.getElementById('output');
     currentDiv.appendChild(newDiv);
@@ -48,13 +48,12 @@ function commands(text) {
 
 function unknown_command(text) {
 	const message = "Unknown command: " + text;
-	const textNode = document.createTextNode(message);
-	output(textNode);
+	output(message);
 }
 
 function help() {
     const commands = [
-	  'clear 				clear terminal screen',
+	  '<p>clear 		    clear terminal screen</p>',
 	  'projects 			display my projects',
 	  'socials 				links to my socials',
 	  'neofetch 			display info about my hardware',
@@ -62,7 +61,8 @@ function help() {
 	]
 
 	for (let i in commands) {
-	  const textNode = document.createTextNode(commands[i]);
+      console.log(commands[i]);
+	  const textNode = commands[i];
 	  output(textNode);
 	}
 }
@@ -70,7 +70,7 @@ function help() {
 function socials() {
     const socialsArray = ['fb', 'github', 'yt'];
 	for (let i in socialsArray) {
-	  const textNode = document.createTextNode(socialsArray[i]);
+	  const textNode = socialsArray[i];
 	  output(textNode);
 	}
 }
