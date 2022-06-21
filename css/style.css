@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     margin: 0;
     background-color: black;
@@ -25,7 +29,7 @@ input[type=submit] {
     display: block;   
 }
 
-#line {
+#input {
     width: 100%;
     background-color: black;
     border-width: 0px;

@@ -1,78 +1,61 @@
-const line = document.getElementById('line');
-let actual_command = "";
+import { help, socials, ascii, hardwareSoftwareInfo } from "./variables.js";
 
+const input = document.getElementById('input');
+var actual_command = "";
 
-line.addEventListener("keypress", function (event) {
-    if (line.value != '' && event.key === "Enter") {
+input.addEventListener("keypress", function (event) {
+    if (input.value != '' && event.key === "Enter") {
         event.preventDefault();
-		actual_command = line.value;
+		actual_command = input.value;
 		createPrompt(actual_command);
-        commands(line.value);
-        line.value = '';
+        commands(input.value);
+        input.value = '';
     }
 }); 
 
-function asciiWelcome(){
-  return 0;
+function commands(text) {
+    switch (text) {
+        case 'help':
+			getLines(help);
+            break;
+        case 'projects':
+			getLines(projects);
+            break;
+        case 'socials':
+			getLines(socials);
+            break;
+        case 'neofetch':
+			getLines(hardwareSoftwareInfo);
+            break;
+		case 'banner':
+			getLines(ascii);
+			break;
+        case 'clear':
+            clear();
+            break;
+        default:
+            unknownCommand(text);
+    }
+}
+
+function getLines(x) {
+	for (let i in x) {
+	  const textNode = x[i];
+	  output(textNode);
+	}
 }
 
 function output(textNode) {
     const newDiv = document.createElement("div");
 	newDiv.innerHTML = textNode
-
     const currentDiv = document.getElementById('output');
     currentDiv.appendChild(newDiv);
 }
 
-function commands(text) {
-    switch (text) {
-        case 'help':
-            help();
-            break;
-        case 'clear':
-            clear();
-            break;
-        case 'projects':
-            projects();
-            break;
-        case 'socials':
-            socials();
-            break;
-        case 'neofetch':
-            neofetch()
-            break;
-        default:
-            unknown_command(text);
-    }
-}
 
-function unknown_command(text) {
+function unknownCommand(text) {
 	const message = "Unknown command: " + text;
 	output(message);
-}
-
-function help() {
-    const commands = [
-	  '<p>clear 		    clear terminal screen</p>',
-	  'projects 			display my projects',
-	  'socials 				links to my socials',
-	  'neofetch 			display info about my hardware',
-	  'cmatrix 				matrix effect'
-	]
-
-	for (let i in commands) {
-      console.log(commands[i]);
-	  const textNode = commands[i];
-	  output(textNode);
-	}
-}
-
-function socials() {
-    const socialsArray = ['fb', 'github', 'yt'];
-	for (let i in socialsArray) {
-	  const textNode = socialsArray[i];
-	  output(textNode);
-	}
 }
 
 function createPrompt(command) {
@@ -93,8 +76,8 @@ function createPrompt(command) {
 }
 
 function clear() {
-  const outputDiv = document.getElementById('output');
-  while (outputDiv.hasChildNodes()){
-	outputDiv.removeChild(outputDiv.firstChild);
-  }
+	const outputDiv = document.getElementById('output');
+	while (outputDiv.hasChildNodes()){
+	  outputDiv.removeChild(outputDiv.firstChild);
+	}
 }
