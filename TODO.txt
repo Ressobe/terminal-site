@@ -1,10 +1,9 @@
-- Left and right side output (commands 	 description)
-- Color scheme One dark (css)
-- Welcome ascii and message
+- Change color when typing in textarea
 - Automate scroll to prompt when it isn't visible
 - Who am I? (whois)
 - History of commands on arrow keys
+- Neofetch style command showing info about my hardware and software that i use
 - Ctrl + l (clear scren)
+- Welcome ascii and message
 - Vim mode (maybe line showing Vim mode ) on/off
 - Matrix effect
-- Neofetch style command showing info about my hardware and software that i use
