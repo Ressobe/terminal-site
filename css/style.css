@@ -1,41 +1,62 @@
+:root {
+  --background: #282c34;
+  --foreground: #abb2bf;
+  --black: #282c34;
+  --red: #e06c75;
+  --green: #98c379;
+  --yellow: #d19a66;
+  --blue: #61afef;
+  --magenta: #c678dd;
+  --cyan: #56b6c2;
+  --white: #abb2bf;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
 
 body {
     margin: 0;
-    background-color: black;
+    background-color: var(--background);
     font-size: x-large;
-    color: green;
     font-weight: bold;
+    color: var(--foreground);
 }
 
 main {
     padding: 20px;
 }
 
-input[type=submit] {
-    display: none;
+textarea {
+  color: var(--foreground);
 }
 
 .prompt {
     float: left;
     margin-right: 10px;
 	padding: 0 2px 0 2px;
+	color: var(--blue);
 }
 
 .line {
     overflow: hidden;
-    display: block;   
+    display: block;
 }
 
 #input {
     width: 100%;
-    background-color: black;
+    background-color: var(--background);
     border-width: 0px;
     border: none;
-    color: green;
     font-size: x-large;
     outline: 0;
     font-weight: bold;
+}
+
+.left_side {
+  color: var(--green);
+}
+
+.right_side {
+  color: var(--red);
 }
