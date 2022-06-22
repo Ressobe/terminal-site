@@ -1,4 +1,4 @@
-import { help, socials, ascii, hardwareSoftwareInfo } from "./variables.js";
+import { help, socials, ascii, hardwareSoftwareInfo, projects } from "./variables.js";
 
 const input = document.getElementById('input');
 var actual_command = "";
@@ -11,30 +11,30 @@ input.addEventListener("keypress", function (event) {
         commands(input.value);
         input.value = '';
     }
-}); 
+});
 
 function commands(text) {
     switch (text) {
-        case 'help':
-			getLines(help);
-            break;
-        case 'projects':
-			getLines(projects);
-            break;
-        case 'socials':
-			getLines(socials);
-            break;
-        case 'neofetch':
-			getLines(hardwareSoftwareInfo);
-            break;
-		case 'banner':
-			getLines(ascii);
-			break;
-        case 'clear':
-            clear();
-            break;
-        default:
-            unknownCommand(text);
+      case 'help':
+		  getLines(help);
+          break;
+      case 'projects':
+		  getLines(projects);
+          break;
+      case 'socials':
+		  getLines(socials);
+          break;
+      case 'neofetch':
+		  getLines(hardwareSoftwareInfo);
+          break;
+	  case 'banner':
+		  getLines(ascii);
+		  break;
+      case 'clear':
+          clear();
+          break;
+      default:
+		  output("Unknown command: " + text);
     }
 }
 
@@ -47,15 +47,9 @@ function getLines(x) {
 
 function output(textNode) {
     const newDiv = document.createElement("div");
-	newDiv.innerHTML = textNode
+	newDiv.innerHTML = textNode;
     const currentDiv = document.getElementById('output');
     currentDiv.appendChild(newDiv);
-}
-
-
-function unknownCommand(text) {
-	const message = "Unknown command: " + text;
-	output(message);
 }
 
 function createPrompt(command) {

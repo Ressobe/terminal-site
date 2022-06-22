@@ -4,11 +4,11 @@ var yt = "";
 
 
 export const help= [
-	  '<span>clear</span>	<span>clear terminal screen</span>',
-	  '<span>projects</span>	<span>display my projects</span>',
-	  '<span>socials</span>		<span>links to my socials</span>',
-	  '<span>neofetch</span> 	<span>display info about my hardware</span>',
-	  '<span>cmatrix</span> 	<span>matrix effect</span>'
+	  '<span class="left_side">clear</span>	<span class="right_side" >clear terminal screen</span>',
+	  '<span class="left_side">projects</span>	<span class="right_side">display my projects</span>',
+	  '<span class="left_side">socials</span>		<span class="right_side">links to my socials</span>',
+	  '<span class="left_side" >neofetch</span> 	<span class="right_side">display info about my hardware</span>',
+	  '<span class="left_side">cmatrix</span> 	<span class="right_side">matrix effect</span>'
 	];
 
 export const socials = [
