@@ -1,9 +1,7 @@
-import { help, socials, ascii, hardwareSoftwareInfo, projects } from "./variables.js";
+import { help, socials, ascii, hardwareSoftwareInfo, projects, whois } from "./variables.js";
 
 const input = document.getElementById("input");
 var history_of_commands = new Set();
-
-
 
 input.addEventListener("keypress", function (event) {
     if (input.value != '' && event.key === "Enter") {
@@ -37,6 +35,8 @@ function commands(text) {
 	  case 'cmatrix':
 		  matrix();
 		  break;
+	  case 'whois':
+		  getLines(whois);
       case 'clear':
           clear();
           break;

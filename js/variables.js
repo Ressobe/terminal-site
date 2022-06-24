@@ -39,3 +39,5 @@ export const hardwareSoftwareInfo = [
 ];
 
 export const projects = [];
+
+export const whois = [];
