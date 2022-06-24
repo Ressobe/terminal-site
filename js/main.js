@@ -1,15 +1,19 @@
 import { help, socials, ascii, hardwareSoftwareInfo, projects } from "./variables.js";
 
-const input = document.getElementById('input');
-var actual_command = "";
+const input = document.getElementById("input");
+var history_of_commands = new Set();
+
+
 
 input.addEventListener("keypress", function (event) {
     if (input.value != '' && event.key === "Enter") {
         event.preventDefault();
-		actual_command = input.value;
-		createPrompt(actual_command);
+		createPrompt(input.value);
         commands(input.value);
+		history_of_commands.add(input.value);
         input.value = '';
+		input.scrollIntoView({behavior: "smooth"});
+		console.log(history_of_commands);
     }
 });
 
@@ -29,6 +33,9 @@ function commands(text) {
           break;
 	  case 'banner':
 		  getLines(ascii);
+		  break;
+	  case 'cmatrix':
+		  matrix();
 		  break;
       case 'clear':
           clear();
