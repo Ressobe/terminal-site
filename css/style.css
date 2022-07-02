@@ -18,7 +18,7 @@
 body {
     margin: 0;
     background-color: var(--background);
-    font-size: x-large;
+    font-size: 24px;
     color: var(--foreground);
 }
 
@@ -44,7 +44,7 @@ input {
 	color: var(--foreground);
     border-width: 0px;
     border: none;
-    font-size: x-large;
+    font-size: 24px;
     outline: 0;
 }
 

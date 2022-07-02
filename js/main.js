@@ -1,7 +1,9 @@
-import { help, socials, ascii, hardwareSoftwareInfo, projects, whois } from "./variables.js";
-
 const input = document.getElementById("input");
 var history_of_commands = new Set();
+
+window.addEventListener("load", function() {
+	getLines(banner);
+});
 
 input.addEventListener("keypress", function (event) {
     if (input.value != '' && event.key === "Enter") {

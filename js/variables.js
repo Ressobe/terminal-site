@@ -1,12 +1,11 @@
-var fb = "";
 var github = "https://github.com/Ressobe";
-var yt = "";
+var yt = "https://www.youtube.com/channel/UCcWXlahMIEBY9WR11VVELuQ";
 
 var left_side = "<span class=left_side>"
 var right_side = "<span class=right_side>"
 var close_span = "</span>"
 
-export const help= [
+const help= [
 	  left_side + 'clear' + close_span	+ right_side + 'clear terminal screen' + close_span,
 	  left_side + 'projects' + close_span + right_side	+ 'display my projects' + close_span,
 	  left_side + 'socials' + close_span + right_side + 'links to my socials' + close_span,
@@ -14,13 +13,12 @@ export const help= [
 	  left_side + 'cmatrix' + close_span + right_side +	'matrix effect' + close_span
 	];
 
-export const socials = [
-	  '<span class="left_side">fb</span>' + '<span class="right_side> </span>"', 
+const socials = [
 	  '<span class="left_side">github</span>' + '<span class="right_side">' + github + '</span>', 
 	  '<span class="left_side">yt</span>' + '<span class="right_side"></span>'
 ];
 
-export const ascii = [
+const banner = [
 	  '.########..########..######...######...#######..########..########',
 	  '.##.....##.##.......##....##.##....##.##.....##.##.....##.##......',
 	  '.##.....##.##.......##.......##.......##.....##.##.....##.##......',
@@ -30,7 +28,7 @@ export const ascii = [
 	  '.##.....##.########..######...######...#######..########..########'
 ]
 
-export const hardwareSoftwareInfo = [
+const hardwareSoftwareInfo = [
 	'<span class="left_side">OS:</span>	<span class="right_side">Arch Linux</span>',
 	'<span class="left_side">Shell:</span>	<span class="right_side">Fish</span>',
 	'<span class="left_side">Window Manager:</span>	<span class="right_side">Dwm</span>',
@@ -38,6 +36,6 @@ export const hardwareSoftwareInfo = [
 	'<span class="left_side">Terminal Font:</span>	<span class="right_side">Hack Nerd Font</span>',
 ];
 
-export const projects = [];
+const projects = [];
 
-export const whois = [];
+const whois = [];
