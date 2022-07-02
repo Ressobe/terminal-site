@@ -1,4 +1,4 @@
-const input = document.getElementById("input");
+const input = document.getElementById("in");
 var history_of_commands = new Set();
 
 window.addEventListener("load", function() {

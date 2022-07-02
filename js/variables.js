@@ -6,11 +6,13 @@ var right_side = "<span class=right_side>"
 var close_span = "</span>"
 
 const help= [
+	  '<p>',
 	  left_side + 'clear' + close_span	+ right_side + 'clear terminal screen' + close_span,
 	  left_side + 'projects' + close_span + right_side	+ 'display my projects' + close_span,
 	  left_side + 'socials' + close_span + right_side + 'links to my socials' + close_span,
-	  left_side + 'neofetch' + close_span + right_side + 'display info about my hardware',
-	  left_side + 'cmatrix' + close_span + right_side +	'matrix effect' + close_span
+	  left_side + 'neofetch' + close_span + right_side + 'display info about my hardware' + close_span,
+	  left_side + 'cmatrix' + close_span + right_side +	'matrix effect' + close_span,
+	  '</p>'
 	];
 
 const socials = [
