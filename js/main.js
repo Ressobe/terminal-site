@@ -13,7 +13,6 @@ input.addEventListener("keypress", function (event) {
 		history_of_commands.add(input.value);
         input.value = '';
 		input.scrollIntoView({behavior: "smooth"});
-		console.log(history_of_commands);
     }
 });
 
@@ -32,7 +31,7 @@ function commands(text) {
 		  getLines(hardwareSoftwareInfo);
           break;
 	  case 'banner':
-		  getLines(ascii);
+		  getLines(banner);
 		  break;
 	  case 'cmatrix':
 		  matrix();
