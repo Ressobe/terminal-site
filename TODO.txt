@@ -1,5 +1,4 @@
 - Who am I? (whois)
 - History of commands on arrow keys
 - Ctrl + l (clear scren)
-- Welcome ascii and message
 - Matrix effect
