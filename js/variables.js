@@ -44,6 +44,8 @@ const hardwareSoftwareInfo = [
 	left_side + 'OS:' + close_right + 'Arch Linux' + close_div,
 	left_side + 'Shell:' + close_right	+ 'Fish' + close_div ,
 	left_side + 'Window Manager:' + close_right	+ 'Dwm' + close_div,
+	left_side + 'Text Editor:' + close_right + 'Neovim' + close_div,
+	left_side + 'Web Browser' + close_right + 'Brave' + close_div,
 	left_side + 'Terminal:' + close_right + 'Alacritty' + close_div ,
 	left_side + 'Terminal Font:' + close_right + 'Hack Nerd Font' + close_div,
 	'<br>'
