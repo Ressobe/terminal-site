@@ -1,16 +1,3 @@
-:root {
-  --background: #282c34;
-  --foreground: #abb2bf;
-  --black: #282c34;
-  --red: #e06c75;
-  --green: #98c379;
-  --yellow: #d19a66;
-  --blue: #61afef;
-  --magenta: #c678dd;
-  --cyan: #56b6c2;
-  --white: #abb2bf;
-}
-
 ::-webkit-scrollbar {
     display: none;
 }
@@ -23,6 +10,19 @@ body {
     margin: 0;
     background-color: var(--background);
     color: var(--foreground);
+}
+
+:root {
+  --background: #282c34;
+  --foreground: #abb2bf;
+  --black: #282c34;
+  --red: #e06c75;
+  --green: #98c379;
+  --yellow: #d19a66;
+  --blue: #61afef;
+  --magenta: #c678dd;
+  --cyan: #56b6c2;
+  --white: #abb2bf;
 }
 
 main {
@@ -51,9 +51,17 @@ input {
 
 .left_side {
   color: var(--yellow);
-  margin-right: 20px;
 }
 
 .right_side {
   color: var(--magenta);
+}
+
+.row {
+    display: flex;
+    width: 50%;
+  }
+
+.left_side, .right_side {
+    flex: 50%;
 }

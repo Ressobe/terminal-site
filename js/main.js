@@ -1,9 +1,11 @@
 const input = document.getElementById("in");
 var history_of_commands = new Set();
 
+/*
 window.addEventListener("load", function() {
 	getLines(banner);
 });
+*/
 
 input.addEventListener("keypress", function (event) {
     if (input.value != '' && event.key === "Enter") {
@@ -41,6 +43,9 @@ function commands(text) {
       case 'clear':
           clear();
           break;
+	  case 'exit':
+		  close();
+		  break;
       default:
 		  output("Unknown command: " + text);
     }
@@ -55,6 +60,7 @@ function getLines(x) {
 
 function output(textNode) {
     const newDiv = document.createElement("div");
+	newDiv.className = "row";
 	newDiv.innerHTML = textNode;
     const currentDiv = document.getElementById('output');
     currentDiv.appendChild(newDiv);
