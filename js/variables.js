@@ -45,3 +45,7 @@ const hardwareSoftwareInfo = [
 	left_side + 'Terminal Font:' + close_right + 'Hack Nerd Font' + close_div,
 	'<br>'
 ];
+
+const commandsArray = ['help', 'projects', 'socials', 'neofetch', 'banner', 'cmatrix', 'whois', 'clear', 'exit' ];
+
+const about = "";
