@@ -1,11 +1,22 @@
 const input = document.getElementById("in");
 var history_of_commands = new Set();
 
-/*
+
 window.addEventListener("load", function() {
+	createPrompt("banner");
 	getLines(banner);
 });
-*/
+
+
+input.addEventListener("keyup", function() {
+
+	if (commandsArray.includes(input.value)) {
+		input.style.color = "#98c379";
+	}
+	else {
+		input.style.color = "#e06c75";
+	}
+})
 
 input.addEventListener("keypress", function (event) {
     if (input.value != '' && event.key === "Enter") {
@@ -38,7 +49,7 @@ function commands(text) {
 	  case 'cmatrix':
 		  matrix();
 		  break;
-	  case 'whois':
+	  case 'about':
 		  getLines(whois);
       case 'clear':
           clear();
@@ -69,15 +80,18 @@ function output(textNode) {
 function createPrompt(command) {
 	const prompt = document.createElement("label");
 	const textNodePrompt = document.createTextNode("visitor@relow.com:~$");
+	const newSpan = document.createElement("span");
 	const textNodeCommand = document.createTextNode(command);
 	const newDiv = document.createElement("div");
 
+	newSpan.className = "green";
+	newSpan.appendChild(textNodeCommand);
 	prompt.className = "prompt";
 	prompt.htmlFor = "line";
 	prompt.appendChild(textNodePrompt);
 
 	newDiv.appendChild(prompt);
-	newDiv.appendChild(textNodeCommand);
+	newDiv.appendChild(newSpan);
 	
     const currentDiv = document.getElementById('output');
     currentDiv.appendChild(newDiv);
