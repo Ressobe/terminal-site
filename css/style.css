@@ -26,13 +26,13 @@ body, html {
   --white: #abb2bf;
 }
 
-main {
+body {
     padding: 1em;
 }
 
 .prompt {
     float: left;
-    margin-right: 10px;
+    margin-right: 5px;
 	padding: 0 2px 0 2px;
 	color: var(--blue);
 }
@@ -74,4 +74,11 @@ input {
 
 .red {
     color: var(--red);
+}
+
+.text {
+    letter-spacing: normal;
+    font-size: x-large;
+    font-family: monospace;
+    padding-left: 3px;
 }
