@@ -22,7 +22,14 @@ input.addEventListener("keyup", function() {
 input.addEventListener("keypress", function (event) {
     if (input.value != '' && event.key === "Enter") {
         event.preventDefault();
-		createPrompt(input.value);
+
+		if (commandsArray.includes(input.value)) {
+			createPrompt(input.value, false);
+		}
+		else {
+			createPrompt(input.value, true);
+		}
+
         commands(input.value);
 		history_of_commands.add(input.value);
         input.value = '';
@@ -83,14 +90,19 @@ function output(textNode) {
     currentDiv.appendChild(newDiv);
 }
 
-function createPrompt(command) {
+function createPrompt(command, error) {
 	const prompt = document.createElement("label");
 	const textNodePrompt = document.createTextNode("visitor@relow.com:~$");
 	const newSpan = document.createElement("span");
 	const textNodeCommand = document.createTextNode(command);
 	const newDiv = document.createElement("div");
 
-	newSpan.className = "green";
+	newSpan.className = "red";
+
+	if (!error) {
+	  newSpan.className = "green";
+	}
+
 	newSpan.classList.add("text");
 
 	newSpan.appendChild(textNodeCommand);
