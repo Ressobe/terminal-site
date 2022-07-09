@@ -1,5 +1,7 @@
 const input = document.getElementById("in");
 var history_of_commands = new Set();
+var green = "#98c379"
+var red = "#e06c75"
 
 
 window.addEventListener("load", function() {
@@ -9,12 +11,11 @@ window.addEventListener("load", function() {
 
 
 input.addEventListener("keyup", function() {
-
 	if (commandsArray.includes(input.value)) {
-		input.style.color = "#98c379";
+		input.style.color = green;
 	}
 	else {
-		input.style.color = "#e06c75";
+		input.style.color = red;
 	}
 })
 
@@ -28,6 +29,14 @@ input.addEventListener("keypress", function (event) {
 		input.scrollIntoView({behavior: "smooth"});
     }
 });
+
+function error(incorrectCommand){
+	return errorArray = [
+		"<br>",
+		"Unkwond command:" + '<span class="red">' + incorrectCommand + '</span>',
+		"<br>"
+	];
+}
 
 function commands(text) {
     switch (text) {
@@ -54,11 +63,8 @@ function commands(text) {
       case 'clear':
           clear();
           break;
-	  case 'exit':
-		  close();
-		  break;
       default:
-		  output("Unknown command: " + text);
+		  getLines(error(text));
     }
 }
 
@@ -85,6 +91,8 @@ function createPrompt(command) {
 	const newDiv = document.createElement("div");
 
 	newSpan.className = "green";
+	newSpan.classList.add("text");
+
 	newSpan.appendChild(textNodeCommand);
 	prompt.className = "prompt";
 	prompt.htmlFor = "line";
