@@ -7,46 +7,52 @@ var right_side = "<div class=right_side>";
 var close_div = "</div>";
 var close_right = close_div + right_side;
 
-const commandsArray = ['help', 'projects', 'socials', 'neofetch', 'banner', 'cmatrix', 'about', 'clear'];
+const loadText = ["Loading ..."];
+
+const commandsArray = [
+  "help",
+  "repo",
+  "neofetch",
+  "banner",
+  "about",
+  "clear",
+  "github",
+  "youtube",
+];
 
 const help = [
-	  '<br>',
-	  left_side + 'clear' + close_right + ' clear terminal screen' + close_div,
-	  left_side + 'projects' + close_right +  'display my projects' + close_div,
-	  left_side + 'socials'  + close_right + 'links to my socials' + close_div ,
-	  left_side + 'neofetch' + close_right + 'display info about my hardware' + close_div,
-	  left_side + 'cmatrix' + close_right +	'matrix effect' + close_div,
-	  '<br>'
-	];
+  left_side + "about" + close_right + "Who is Ressobe?" + close_div,
+  left_side +
+    "neofetch" +
+    close_right +
+    "Display info about my software" +
+    close_div,
+  left_side + "repo" + close_right + "Open project repository" + close_div,
+  left_side + "github" + close_right + "Open my github profile " + close_div,
+  left_side + "youtube" + close_right + "Open my youtube channel" + close_div,
+  left_side + "banner" + close_right + "Display ascii banner" + close_div,
+  left_side + "clear" + close_right + " Clear terminal screen" + close_div,
 
-const socials = [
-	  '<br>',
-	  left_side + 'github' + close_right + github + close_div, 
-	  left_side + 'youtube' + close_right + yt + close_div,
-	  '<br>'
+  //   left_side + 'cmatrix' + close_right +	'matrix effect' + close_div
 ];
 
 const banner = [
-	'<br>',
-	'██████╗░███████╗░██████╗░██████╗░█████╗░██████╗░███████╗',
-	'██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝',
-	'██████╔╝█████╗░░╚█████╗░╚█████╗░██║░░██║██████╦╝█████╗░░',
-	'██╔══██╗██╔══╝░░░╚═══██╗░╚═══██╗██║░░██║██╔══██╗██╔══╝░░',
-	'██║░░██║███████╗██████╔╝██████╔╝╚█████╔╝██████╦╝███████╗',
-	'╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░░╚════╝░╚═════╝░╚══════╝' + ' ' + version,
-	'<br>',
-	"Type 'help' to see list of available commands",
-	'<br>'
-]
+  "██████╗░███████╗░██████╗░██████╗░█████╗░██████╗░███████╗",
+  "██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝",
+  "██████╔╝█████╗░░╚█████╗░╚█████╗░██║░░██║██████╦╝█████╗░░",
+  "██╔══██╗██╔══╝░░░╚═══██╗░╚═══██╗██║░░██║██╔══██╗██╔══╝░░",
+  "██║░░██║███████╗██████╔╝██████╔╝╚█████╔╝██████╦╝███████╗",
+  "╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░░╚════╝░╚═════╝░╚══════╝" + " " + version,
+  "<br>",
+  "Type 'help' to see list of available commands",
+];
 
-const hardwareSoftwareInfo = [
-	'<br>',
-	left_side + 'OS:' + close_right + 'Arch Linux' + close_div,
-	left_side + 'Shell:' + close_right	+ 'Fish' + close_div ,
-	left_side + 'Window Manager:' + close_right	+ 'Dwm' + close_div,
-	left_side + 'Text Editor:' + close_right + 'Neovim' + close_div,
-	left_side + 'Web Browser' + close_right + 'Brave' + close_div,
-	left_side + 'Terminal:' + close_right + 'Alacritty' + close_div ,
-	left_side + 'Terminal Font:' + close_right + 'Hack Nerd Font' + close_div,
-	'<br>'
+const software = [
+  left_side + "OS:" + close_right + "Arch Linux" + close_div,
+  left_side + "Shell:" + close_right + "Fish" + close_div,
+  left_side + "Window Manager:" + close_right + "Dwm" + close_div,
+  left_side + "Text Editor:" + close_right + "Neovim" + close_div,
+  left_side + "Web Browser" + close_right + "Brave" + close_div,
+  left_side + "Terminal:" + close_right + "Alacritty" + close_div,
+  left_side + "Terminal Font:" + close_right + "Hack Nerd Font" + close_div,
 ];
