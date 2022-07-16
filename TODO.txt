@@ -1,4 +1,0 @@
-- Who am I? (whois)
-- History of commands on arrow keys
-- Ctrl + l (clear scren)
-- Matrix effect
