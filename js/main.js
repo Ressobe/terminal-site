@@ -35,13 +35,22 @@ input.addEventListener("keypress", function (event) {
 
 function commands(text) {
   switch (text) {
-    case "repo":
-      getLines(repo);
-      goTO(github);
-    case "videos":
-      getLines(videos);
     case "help":
       getLines(help);
+      break;
+    case "about":
+      getLines(about);
+      break;
+    case "repo":
+      getLines(loading);
+      openLink(project_repo);
+      break;
+    case "github":
+      getLines(loading);
+      openLink(github);
+    case "youtube":
+      getLines(loading);
+      openLink(youtube);
       break;
     case "neofetch":
       getLines(software);
@@ -49,17 +58,12 @@ function commands(text) {
     case "banner":
       getLines(banner);
       break;
-    case "cmatrix":
-      matrix();
-      break;
-    case "about":
-      getLines(whois);
     case "clear":
       clear();
       break;
     default:
       let error = [
-        "Unkwond command:" + '<span class="red">' + text + "</span>",
+        '<span class="red">' + text + "</span>" + ": command not found",
       ];
       getLines(error);
   }
@@ -116,6 +120,8 @@ function clear() {
   }
 }
 
-function goTO(link) {
-  window.open(link);
+function openLink(link) {
+  setTimeout(function () {
+    window.open(link);
+  }, 1500);
 }
