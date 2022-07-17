@@ -1,5 +1,4 @@
 const input = document.getElementById("in");
-var history_of_commands = new Set();
 var green = "#98c379";
 var red = "#e06c75";
 
@@ -27,7 +26,6 @@ input.addEventListener("keypress", function (event) {
     }
 
     commands(input.value);
-    history_of_commands.add(input.value);
     input.value = "";
     input.scrollIntoView({ behavior: "smooth" });
   }

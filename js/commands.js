@@ -23,7 +23,7 @@ const commandsArray = [
 
 const help = [
   `${left_side} about ${close_right} Who is Ressobe ${close_div}`,
-  `${left_side} repo ${close_right} Open project repository" ${close_div}`,
+  `${left_side} repo ${close_right} Open project repository ${close_div}`,
   `${left_side} github ${close_right} Open my github profile ${close_div}`,
   `${left_side} youtube ${close_right} Open my youtube channel ${close_div}`,
   `${left_side} neofetch ${close_right} Display info about my software ${close_div}`,
