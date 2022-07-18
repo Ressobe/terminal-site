@@ -1,33 +1,32 @@
-const input = document.getElementById("in");
+const outputElement = document.querySelector("#Output");
+const inputElement = document.querySelector("#Input");
 var green = "#98c379";
 var red = "#e06c75";
 
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
   createPrompt("banner");
   getLines(banner);
 });
 
-input.addEventListener("keyup", function () {
-  if (commandsArray.includes(input.value)) {
-    input.style.color = green;
+inputElement.addEventListener("keyup", () => {
+  if (commandsArray.includes(inputElement.value)) {
+    inputElement.style.color = green;
   } else {
-    input.style.color = red;
+    inputElement.style.color = red;
   }
 });
 
-input.addEventListener("keypress", function (event) {
-  if (input.value != "" && event.key === "Enter") {
-    event.preventDefault();
-
-    if (commandsArray.includes(input.value)) {
-      createPrompt(input.value, false);
+inputElement.addEventListener("keypress", (event) => {
+  if (inputElement.value != "" && event.key === "Enter") {
+    if (commandsArray.includes(inputElement.value)) {
+      createPrompt(inputElement.value, false);
     } else {
-      createPrompt(input.value, true);
+      createPrompt(inputElement.value, true);
     }
 
-    commands(input.value);
-    input.value = "";
-    input.scrollIntoView({ behavior: "smooth" });
+    commands(inputElement.value);
+    inputElement.value = "";
+    inputElement.scrollIntoView({ behavior: "smooth" });
   }
 });
 
@@ -46,6 +45,7 @@ function commands(text) {
     case "github":
       getLines(loading);
       openLink(github);
+      break;
     case "youtube":
       getLines(loading);
       openLink(youtube);
@@ -80,13 +80,12 @@ function output(textNode) {
   const newDiv = document.createElement("div");
   newDiv.className = "row";
   newDiv.innerHTML = textNode;
-  const currentDiv = document.getElementById("output");
-  currentDiv.appendChild(newDiv);
+  outputElement.appendChild(newDiv);
 }
 
 function createPrompt(command, error) {
   const prompt = document.createElement("label");
-  const textNodePrompt = document.createTextNode("visitor@relow.com:~$");
+  const textNodePrompt = document.createTextNode("visitor@ressobe.com:~$");
   const newSpan = document.createElement("span");
   const textNodeCommand = document.createTextNode(command);
   const newDiv = document.createElement("div");
@@ -107,14 +106,12 @@ function createPrompt(command, error) {
   newDiv.appendChild(prompt);
   newDiv.appendChild(newSpan);
 
-  const currentDiv = document.getElementById("output");
-  currentDiv.appendChild(newDiv);
+  outputElement.appendChild(newDiv);
 }
 
 function clear() {
-  const outputDiv = document.getElementById("output");
-  while (outputDiv.hasChildNodes()) {
-    outputDiv.removeChild(outputDiv.firstChild);
+  while (outputElement.hasChildNodes()) {
+    outputElement.removeChild(outputElement.firstChild);
   }
 }
 
