@@ -2,32 +2,39 @@
     display: none;
 }
 
+:root {
+  --font: monospace;
+  --background: #282c34;
+  --foreground: #abb2bf;
+  --red: #e06c75;
+  --green: #98c379;
+  --blue: #61afef;
+  --magenta: #c678dd;
+  --cyan: #56b6c2;
+}
+
 * {
     font-size: x-large;
+    box-sizing: border-box;
 }
 
 body, html {
     margin: 0;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Courier New', Courier, monospace;
-}
-
-:root {
-  --background: #282c34;
-  --foreground: #abb2bf;
-  --black: #282c34;
-  --red: #e06c75;
-  --green: #98c379;
-  --yellow: #d19a66;
-  --blue: #61afef;
-  --magenta: #c678dd;
-  --cyan: #56b6c2;
-  --white: #abb2bf;
+    font-family: var(--font);
+    text-align: left;
 }
 
 body {
     padding: 1em;
+}
+
+.text {
+    letter-spacing: normal;
+    font-size: x-large;
+    font-family: var(--font);
+    padding-left: 3px;
 }
 
 .prompt {
@@ -48,11 +55,11 @@ input {
 	color: var(--red);
     border: none;
     outline: 0;
-    caret-color: var(--green);
+    caret-color: var(--white);
 }
 
 .left_side {
-  color: var(--yellow);
+  color: var(--cyan);
 }
 
 .right_side {
@@ -74,11 +81,4 @@ input {
 
 .red {
     color: var(--red);
-}
-
-.text {
-    letter-spacing: normal;
-    font-size: x-large;
-    font-family: monospace;
-    padding-left: 3px;
 }
