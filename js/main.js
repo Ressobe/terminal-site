@@ -56,22 +56,21 @@ function commands(text) {
     case "banner":
       getLines(banner);
       break;
+    case "time":
+      getLines(getTime());
+      break;
     case "clear":
       clear();
       break;
     default:
-      let error = [
-        '<span class="red">' + text + "</span>" + ": command not found",
-      ];
-      getLines(error);
+      getLines(error(text));
   }
 }
 
-function getLines(x) {
+function getLines(textArray) {
   output("<br>");
-  for (let i in x) {
-    const textNode = x[i];
-    output(textNode);
+  for (let line in textArray) {
+    output(textArray[line]);
   }
   output("<br>");
 }
@@ -119,4 +118,13 @@ function openLink(link) {
   setTimeout(function () {
     window.open(link);
   }, 1500);
+}
+
+function getTime() {
+  const actualDate = new Date();
+  return [`${actualDate.getHours()}:${actualDate.getMinutes()} ⏰`];
+}
+
+function error(text) {
+  return ['<span class="red">' + text + "</span>" + ": command not found"];
 }
