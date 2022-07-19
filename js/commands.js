@@ -18,6 +18,7 @@ const commandsArray = [
   "youtube",
   "neofetch",
   "banner",
+  "time",
   "clear",
 ];
 
@@ -28,6 +29,7 @@ const help = [
   `${left_side} youtube ${close_right} Open my youtube channel ${close_div}`,
   `${left_side} neofetch ${close_right} Display info about my software ${close_div}`,
   `${left_side} banner ${close_right} Display ascii banner ${close_div}`,
+  `${left_side} time  ${close_right} Display actual time ${close_div}`,
   `${left_side} clear  ${close_right} Clear terminal screen ${close_div}`,
 ];
 
