@@ -6,11 +6,11 @@
   --font: monospace;
   --background: #282c34;
   --foreground: #abb2bf;
-  --red: #e06c75;
-  --green: #98c379;
-  --blue: #61afef;
-  --magenta: #c678dd;
-  --cyan: #56b6c2;
+  --error: #e06c75;
+  --sucess: #98c379;
+  --primary: #61afef;
+  --secondary: #c678dd;
+  --third: #56b6c2;
 }
 
 * {
@@ -41,7 +41,7 @@ body {
     float: left;
     margin-right: 5px;
 	padding: 0 2px 0 2px;
-	color: var(--blue);
+	color: var(--primary);
 }
 
 .line {
@@ -52,18 +52,18 @@ body {
 input {
     width: 100%;
     background-color: var(--background);
-	color: var(--red);
+	color: var(--error);
     border: none;
     outline: 0;
     caret-color: var(--white);
 }
 
 .left_side {
-  color: var(--cyan);
+  color: var(--third);
 }
 
 .right_side {
-  color: var(--magenta);
+  color: var(--secondary);
 }
 
 .row {
@@ -76,9 +76,9 @@ input {
 }
 
 .green {
-    color: var(--green);
+    color: var(--sucess);
 }
 
 .red {
-    color: var(--red);
+    color: var(--error);
 }
