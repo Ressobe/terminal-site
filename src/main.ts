@@ -1,9 +1,6 @@
 const outputElement: HTMLElement = document.querySelector("#Output");
 const inputElement: HTMLInputElement = document.querySelector("#Input");
 
-const sucessColor: string = "#98c379";
-const errorColor: string = "#e06c75";
-
 const createPrompt = (command: string, error: boolean) => {
   const prompt: HTMLLabelElement = document.createElement("label");
   const newSpan: HTMLSpanElement = document.createElement("span");
@@ -31,19 +28,29 @@ const createPrompt = (command: string, error: boolean) => {
   outputElement.appendChild(newDiv);
 };
 
-const output = (textNode: string) => {
+const render = (text: string) => {
   const newDiv: HTMLDivElement = document.createElement("div");
   newDiv.className = "row";
-  newDiv.innerHTML = textNode;
+  newDiv.innerHTML = text;
   outputElement.appendChild(newDiv);
 };
 
-const getLines = (textArray: string[]) => {
-  output("<br>");
+const getOneLine = (textArray: string[]) => {
+  render("<br>");
   for (let line in textArray) {
-    output(textArray[line]);
+    render(textArray[line]);
   }
-  output("<br>");
+  render("<br>");
+};
+
+const getLines = (row: Rows[]) => {
+  render("<br>");
+  row.forEach((element) => {
+    render(
+      `${left_side} ${element.left_side} ${close_right} ${element.right_side} ${close_div}`
+    );
+  });
+  render("<br>");
 };
 
 const clear = () => {
@@ -73,40 +80,43 @@ const commands = (text: string) => {
       getLines(help);
       break;
     case "about":
-      getLines(about);
+      getOneLine(about);
       break;
     case "repo":
-      getLines(loading);
+      getOneLine(loading);
       openLink(project_repo);
       break;
     case "github":
-      getLines(loading);
+      getOneLine(loading);
       openLink(github);
       break;
     case "youtube":
-      getLines(loading);
+      getOneLine(loading);
       openLink(youtube);
       break;
     case "neofetch":
       getLines(software);
       break;
     case "banner":
-      getLines(banner);
+      getOneLine(banner);
+      break;
+    case "theme":
+      changeTheme();
       break;
     case "time":
-      getLines(getTime());
+      getOneLine(getTime());
       break;
     case "clear":
       clear();
       break;
     default:
-      getLines(error(text));
+      getOneLine(error(text));
   }
 };
 
 window.addEventListener("load", () => {
   createPrompt("banner", false);
-  getLines(banner);
+  getOneLine(banner);
 });
 
 inputElement.addEventListener("keyup", () => {
@@ -124,7 +134,6 @@ inputElement.addEventListener("keypress", (event) => {
     } else {
       createPrompt(inputElement.value, true);
     }
-
     commands(inputElement.value);
     inputElement.value = "";
     inputElement.scrollIntoView({ behavior: "smooth" });
