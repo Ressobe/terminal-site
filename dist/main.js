@@ -1,7 +1,5 @@
 var outputElement = document.querySelector("#Output");
 var inputElement = document.querySelector("#Input");
-var sucessColor = "#98c379";
-var errorColor = "#e06c75";
 var createPrompt = function (command, error) {
     var prompt = document.createElement("label");
     var newSpan = document.createElement("span");
@@ -23,18 +21,25 @@ var createPrompt = function (command, error) {
     newDiv.appendChild(newSpan);
     outputElement.appendChild(newDiv);
 };
-var output = function (textNode) {
+var render = function (text) {
     var newDiv = document.createElement("div");
     newDiv.className = "row";
-    newDiv.innerHTML = textNode;
+    newDiv.innerHTML = text;
     outputElement.appendChild(newDiv);
 };
-var getLines = function (textArray) {
-    output("<br>");
+var getOneLine = function (textArray) {
+    render("<br>");
     for (var line in textArray) {
-        output(textArray[line]);
+        render(textArray[line]);
     }
-    output("<br>");
+    render("<br>");
+};
+var getLines = function (row) {
+    render("<br>");
+    row.forEach(function (element) {
+        render("".concat(left_side, " ").concat(element.left_side, " ").concat(close_right, " ").concat(element.right_side, " ").concat(close_div));
+    });
+    render("<br>");
 };
 var clear = function () {
     while (outputElement.hasChildNodes()) {
@@ -59,39 +64,42 @@ var commands = function (text) {
             getLines(help);
             break;
         case "about":
-            getLines(about);
+            getOneLine(about);
             break;
         case "repo":
-            getLines(loading);
+            getOneLine(loading);
             openLink(project_repo);
             break;
         case "github":
-            getLines(loading);
+            getOneLine(loading);
             openLink(github);
             break;
         case "youtube":
-            getLines(loading);
+            getOneLine(loading);
             openLink(youtube);
             break;
         case "neofetch":
             getLines(software);
             break;
         case "banner":
-            getLines(banner);
+            getOneLine(banner);
+            break;
+        case "theme":
+            changeTheme();
             break;
         case "time":
-            getLines(getTime());
+            getOneLine(getTime());
             break;
         case "clear":
             clear();
             break;
         default:
-            getLines(error(text));
+            getOneLine(error(text));
     }
 };
 window.addEventListener("load", function () {
     createPrompt("banner", false);
-    getLines(banner);
+    getOneLine(banner);
 });
 inputElement.addEventListener("keyup", function () {
     if (commandsArray.indexOf(inputElement.value) != -1) {
