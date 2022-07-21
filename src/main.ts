@@ -1,4 +1,5 @@
 import { Rows } from "./types/types";
+import { sucessColor, errorColor } from "./themes.js";
 import {
   left_side,
   close_div,
@@ -13,60 +14,28 @@ import {
   youtube,
   loading,
 } from "./commands.js";
+import { renderPromptWithCommand, renderRow } from "./helpers/render-helper.js";
 
-const outputElement: HTMLElement = document.querySelector("#Output");
+const outputElement: HTMLDivElement = document.querySelector("#Output");
 const inputElement: HTMLInputElement = document.querySelector("#Input");
 
-const renderPrompt = (command: string, error: boolean) => {
-  const prompt: HTMLLabelElement = document.createElement("label");
-  const newSpan: HTMLSpanElement = document.createElement("span");
-  const newDiv: HTMLDivElement = document.createElement("div");
-
-  const textPrompt = "visitor@ressobe.com:~$";
-  const textCommand = command;
-
-  if (error) {
-    newSpan.style.color = errorColor;
-  } else {
-    newSpan.style.color = sucessColor;
-  }
-
-  newSpan.classList.add("text");
-
-  newSpan.innerHTML = textCommand;
-  prompt.className = "prompt";
-  prompt.setAttribute("for", "line");
-  prompt.innerHTML = textPrompt;
-
-  newDiv.appendChild(prompt);
-  newDiv.appendChild(newSpan);
-
-  outputElement.appendChild(newDiv);
-};
-
-const render = (text: string) => {
-  const newDiv: HTMLDivElement = document.createElement("div");
-  newDiv.className = "row";
-  newDiv.innerHTML = text;
-  outputElement.appendChild(newDiv);
-};
-
 const getOneLine = (textArray: string[]) => {
-  render("<br>");
+  renderRow("<br>", outputElement);
   for (let line in textArray) {
-    render(textArray[line]);
+    renderRow(textArray[line], outputElement);
   }
-  render("<br>");
+  renderRow("<br>", outputElement);
 };
 
 const getLines = (row: Rows[]) => {
-  render("<br>");
+  renderRow("<br>", outputElement);
   row.forEach((element) => {
-    render(
-      `${left_side} ${element.left_side} ${close_right} ${element.right_side} ${close_div}`
+    renderRow(
+      `${left_side} ${element.left_side} ${close_right} ${element.right_side} ${close_div}`,
+      outputElement
     );
   });
-  render("<br>");
+  renderRow("<br>", outputElement);
 };
 
 const clear = () => {
@@ -116,9 +85,6 @@ const commands = (text: string) => {
     case "banner":
       getOneLine(banner);
       break;
-    case "theme":
-      changeTheme();
-      break;
     case "time":
       getOneLine(getTime());
       break;
@@ -131,7 +97,13 @@ const commands = (text: string) => {
 };
 
 window.addEventListener("load", () => {
-  renderPrompt("banner", false);
+  renderPromptWithCommand(
+    "banner",
+    false,
+    errorColor,
+    sucessColor,
+    outputElement
+  );
   getOneLine(banner);
 });
 
@@ -146,9 +118,21 @@ inputElement.addEventListener("keyup", () => {
 inputElement.addEventListener("keypress", (event) => {
   if (inputElement.value != "" && event.key === "Enter") {
     if (commandsArray.indexOf(inputElement.value) != -1) {
-      renderPrompt(inputElement.value, false);
+      renderPromptWithCommand(
+        inputElement.value,
+        false,
+        errorColor,
+        sucessColor,
+        outputElement
+      );
     } else {
-      renderPrompt(inputElement.value, true);
+      renderPromptWithCommand(
+        inputElement.value,
+        true,
+        errorColor,
+        sucessColor,
+        outputElement
+      );
     }
     commands(inputElement.value);
     inputElement.value = "";

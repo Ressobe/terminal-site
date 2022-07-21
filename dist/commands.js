@@ -15,7 +15,6 @@ export var commandsArray = [
     "youtube",
     "neofetch",
     "banner",
-    "theme",
     "time",
     "clear",
 ];

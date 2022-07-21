@@ -22,8 +22,8 @@ const newtheme = {
 
 let defaultTheme = onedark;
 
-let sucessColor = defaultTheme.sucess;
-let errorColor = defaultTheme.error;
+export let sucessColor = defaultTheme.sucess;
+export let errorColor = defaultTheme.error;
 
 function changeTheme() {
   for (let key in newtheme) {

@@ -21,7 +21,6 @@ export const commandsArray: string[] = [
   "youtube",
   "neofetch",
   "banner",
-  "theme",
   "time",
   "clear",
 ];

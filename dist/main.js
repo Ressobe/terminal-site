@@ -1,46 +1,21 @@
+import { sucessColor, errorColor } from "./themes.js";
 import { left_side, close_div, close_right, commandsArray, banner, about, software, help, github, project_repo, youtube, loading, } from "./commands.js";
+import { renderPromptWithCommand, renderRow } from "./helpers/render-helper.js";
 var outputElement = document.querySelector("#Output");
 var inputElement = document.querySelector("#Input");
-var renderPrompt = function (command, error) {
-    var prompt = document.createElement("label");
-    var newSpan = document.createElement("span");
-    var newDiv = document.createElement("div");
-    var textPrompt = "visitor@ressobe.com:~$";
-    var textCommand = command;
-    if (error) {
-        newSpan.style.color = errorColor;
-    }
-    else {
-        newSpan.style.color = sucessColor;
-    }
-    newSpan.classList.add("text");
-    newSpan.innerHTML = textCommand;
-    prompt.className = "prompt";
-    prompt.setAttribute("for", "line");
-    prompt.innerHTML = textPrompt;
-    newDiv.appendChild(prompt);
-    newDiv.appendChild(newSpan);
-    outputElement.appendChild(newDiv);
-};
-var render = function (text) {
-    var newDiv = document.createElement("div");
-    newDiv.className = "row";
-    newDiv.innerHTML = text;
-    outputElement.appendChild(newDiv);
-};
 var getOneLine = function (textArray) {
-    render("<br>");
+    renderRow("<br>", outputElement);
     for (var line in textArray) {
-        render(textArray[line]);
+        renderRow(textArray[line], outputElement);
     }
-    render("<br>");
+    renderRow("<br>", outputElement);
 };
 var getLines = function (row) {
-    render("<br>");
+    renderRow("<br>", outputElement);
     row.forEach(function (element) {
-        render("".concat(left_side, " ").concat(element.left_side, " ").concat(close_right, " ").concat(element.right_side, " ").concat(close_div));
+        renderRow("".concat(left_side, " ").concat(element.left_side, " ").concat(close_right, " ").concat(element.right_side, " ").concat(close_div), outputElement);
     });
-    render("<br>");
+    renderRow("<br>", outputElement);
 };
 var clear = function () {
     while (outputElement.hasChildNodes()) {
@@ -85,9 +60,6 @@ var commands = function (text) {
         case "banner":
             getOneLine(banner);
             break;
-        case "theme":
-            changeTheme();
-            break;
         case "time":
             getOneLine(getTime());
             break;
@@ -99,7 +71,7 @@ var commands = function (text) {
     }
 };
 window.addEventListener("load", function () {
-    renderPrompt("banner", false);
+    renderPromptWithCommand("banner", false, errorColor, sucessColor, outputElement);
     getOneLine(banner);
 });
 inputElement.addEventListener("keyup", function () {
@@ -113,10 +85,10 @@ inputElement.addEventListener("keyup", function () {
 inputElement.addEventListener("keypress", function (event) {
     if (inputElement.value != "" && event.key === "Enter") {
         if (commandsArray.indexOf(inputElement.value) != -1) {
-            renderPrompt(inputElement.value, false);
+            renderPromptWithCommand(inputElement.value, false, errorColor, sucessColor, outputElement);
         }
         else {
-            renderPrompt(inputElement.value, true);
+            renderPromptWithCommand(inputElement.value, true, errorColor, sucessColor, outputElement);
         }
         commands(inputElement.value);
         inputElement.value = "";

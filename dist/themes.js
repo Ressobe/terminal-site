@@ -18,8 +18,8 @@ var newtheme = {
     third: "pink"
 };
 var defaultTheme = onedark;
-var sucessColor = defaultTheme.sucess;
-var errorColor = defaultTheme.error;
+export var sucessColor = defaultTheme.sucess;
+export var errorColor = defaultTheme.error;
 function changeTheme() {
     for (var key in newtheme) {
         root.style.setProperty(key, newtheme[key]);
