@@ -1,6 +1,7 @@
+import { left_side, close_div, close_right, commandsArray, banner, about, software, help, github, project_repo, youtube, loading, } from "./commands.js";
 var outputElement = document.querySelector("#Output");
 var inputElement = document.querySelector("#Input");
-var createPrompt = function (command, error) {
+var renderPrompt = function (command, error) {
     var prompt = document.createElement("label");
     var newSpan = document.createElement("span");
     var newDiv = document.createElement("div");
@@ -98,7 +99,7 @@ var commands = function (text) {
     }
 };
 window.addEventListener("load", function () {
-    createPrompt("banner", false);
+    renderPrompt("banner", false);
     getOneLine(banner);
 });
 inputElement.addEventListener("keyup", function () {
@@ -112,10 +113,10 @@ inputElement.addEventListener("keyup", function () {
 inputElement.addEventListener("keypress", function (event) {
     if (inputElement.value != "" && event.key === "Enter") {
         if (commandsArray.indexOf(inputElement.value) != -1) {
-            createPrompt(inputElement.value, false);
+            renderPrompt(inputElement.value, false);
         }
         else {
-            createPrompt(inputElement.value, true);
+            renderPrompt(inputElement.value, true);
         }
         commands(inputElement.value);
         inputElement.value = "";

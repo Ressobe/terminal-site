@@ -1,13 +1,13 @@
-var github = "https://github.com/Ressobe";
-var project_repo = "https://github.com/Ressobe/terminalSite";
-var youtube = "https://www.youtube.com/channel/UCcWXlahMIEBY9WR11VVELuQ";
-var version = "v1.0";
-var left_side = "<div class=left_side>";
+export var github = "https://github.com/Ressobe";
+export var project_repo = "https://github.com/Ressobe/terminalSite";
+export var youtube = "https://www.youtube.com/channel/UCcWXlahMIEBY9WR11VVELuQ";
+export var version = "v1.0";
+export var left_side = "<div class=left_side>";
 var right_side = "<div class=right_side>";
-var close_div = "</div>";
-var close_right = close_div + right_side;
-var loading = ["Loading ..."];
-var commandsArray = [
+export var close_div = "</div>";
+export var close_right = close_div + right_side;
+export var loading = ["Loading ..."];
+export var commandsArray = [
     "help",
     "about",
     "repo",
@@ -19,7 +19,7 @@ var commandsArray = [
     "time",
     "clear",
 ];
-var help = [
+export var help = [
     {
         left_side: "about",
         right_side: "Who is Ressobe?"
@@ -53,7 +53,7 @@ var help = [
         right_side: "Clear terminal"
     },
 ];
-var software = [
+export var software = [
     {
         left_side: "OS:",
         right_side: "Arch Linux"
@@ -83,7 +83,7 @@ var software = [
         right_side: "Hack Nerd Font"
     },
 ];
-var banner = [
+export var banner = [
     "██████╗░███████╗░██████╗░██████╗░█████╗░██████╗░███████╗",
     "██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝",
     "██████╔╝█████╗░░╚█████╗░╚█████╗░██║░░██║██████╦╝█████╗░░",
@@ -99,6 +99,6 @@ var banner = [
     "<br>",
     "Type 'help' to see list of available commands",
 ];
-var about = [
+export var about = [
     "I am a Linux enthusiast (mainly I use Arch and Gentoo). Mostly, I would be sitting at a terminal, fixing things, making them work and experimenting.I love tweaking my environment and creating things which are useful/fun.",
 ];

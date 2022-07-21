@@ -1,7 +1,23 @@
+import { Rows } from "./types/types";
+import {
+  left_side,
+  close_div,
+  close_right,
+  commandsArray,
+  banner,
+  about,
+  software,
+  help,
+  github,
+  project_repo,
+  youtube,
+  loading,
+} from "./commands.js";
+
 const outputElement: HTMLElement = document.querySelector("#Output");
 const inputElement: HTMLInputElement = document.querySelector("#Input");
 
-const createPrompt = (command: string, error: boolean) => {
+const renderPrompt = (command: string, error: boolean) => {
   const prompt: HTMLLabelElement = document.createElement("label");
   const newSpan: HTMLSpanElement = document.createElement("span");
   const newDiv: HTMLDivElement = document.createElement("div");
@@ -115,7 +131,7 @@ const commands = (text: string) => {
 };
 
 window.addEventListener("load", () => {
-  createPrompt("banner", false);
+  renderPrompt("banner", false);
   getOneLine(banner);
 });
 
@@ -130,9 +146,9 @@ inputElement.addEventListener("keyup", () => {
 inputElement.addEventListener("keypress", (event) => {
   if (inputElement.value != "" && event.key === "Enter") {
     if (commandsArray.indexOf(inputElement.value) != -1) {
-      createPrompt(inputElement.value, false);
+      renderPrompt(inputElement.value, false);
     } else {
-      createPrompt(inputElement.value, true);
+      renderPrompt(inputElement.value, true);
     }
     commands(inputElement.value);
     inputElement.value = "";

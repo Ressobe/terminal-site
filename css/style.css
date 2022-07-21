@@ -55,7 +55,7 @@ input {
 	color: var(--error);
     border: none;
     outline: 0;
-    caret-color: var(--white);
+    caret-color: var(--sucess);
 }
 
 .left_side {
