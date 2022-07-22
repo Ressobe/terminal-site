@@ -8,9 +8,7 @@ export const renderPromptWithCommand = (
   const prompt: HTMLLabelElement = document.createElement("label");
   const newSpan: HTMLSpanElement = document.createElement("span");
   const newDiv: HTMLDivElement = document.createElement("div");
-
   const textPrompt = "visitor@ressobe.com:~$";
-  const textCommand = command;
 
   if (error) {
     newSpan.style.color = errorColor;
@@ -19,8 +17,8 @@ export const renderPromptWithCommand = (
   }
 
   newSpan.classList.add("text");
+  newSpan.innerHTML = command;
 
-  newSpan.innerHTML = textCommand;
   prompt.className = "prompt";
   prompt.setAttribute("for", "line");
   prompt.innerHTML = textPrompt;
