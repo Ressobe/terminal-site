@@ -1,10 +1,8 @@
-import { Rows } from "./types/types";
-import { sucessColor, errorColor } from "./themes.js";
+import { Rows } from "./types/types.js";
 import {
   left_side,
   close_div,
   close_right,
-  commandsArray,
   banner,
   about,
   software,
@@ -13,13 +11,27 @@ import {
   project_repo,
   youtube,
   loading,
-} from "./commands.js";
+} from "./commands-content.js";
 import { renderPromptWithCommand, renderRow } from "./helpers/render-helper.js";
 
 const outputElement: HTMLDivElement = document.querySelector("#Output");
 const inputElement: HTMLInputElement = document.querySelector("#Input");
+const sucessColor: string = "#98c379";
+const errorColor: string = "#e06c75";
 
-const getOneLine = (textArray: string[]) => {
+const commandsArray: string[] = [
+  "help",
+  "about",
+  "repo",
+  "github",
+  "youtube",
+  "neofetch",
+  "banner",
+  "time",
+  "clear",
+];
+
+const getOneLineRender = (textArray: string[]) => {
   renderRow("<br>", outputElement);
   for (let line in textArray) {
     renderRow(textArray[line], outputElement);
@@ -27,7 +39,7 @@ const getOneLine = (textArray: string[]) => {
   renderRow("<br>", outputElement);
 };
 
-const getLines = (row: Rows[]) => {
+const getLinesRender = (row: Rows[]) => {
   renderRow("<br>", outputElement);
   row.forEach((element) => {
     renderRow(
@@ -62,37 +74,37 @@ const error = (text: string) => {
 const commands = (text: string) => {
   switch (text) {
     case "help":
-      getLines(help);
+      getLinesRender(help);
       break;
     case "about":
-      getOneLine(about);
+      getOneLineRender(about);
       break;
     case "repo":
-      getOneLine(loading);
+      getOneLineRender(loading);
       openLink(project_repo);
       break;
     case "github":
-      getOneLine(loading);
+      getOneLineRender(loading);
       openLink(github);
       break;
     case "youtube":
-      getOneLine(loading);
+      getOneLineRender(loading);
       openLink(youtube);
       break;
     case "neofetch":
-      getLines(software);
+      getLinesRender(software);
       break;
     case "banner":
-      getOneLine(banner);
+      getOneLineRender(banner);
       break;
     case "time":
-      getOneLine(getTime());
+      getOneLineRender(getTime());
       break;
     case "clear":
       clear();
       break;
     default:
-      getOneLine(error(text));
+      getOneLineRender(error(text));
   }
 };
 
@@ -104,11 +116,11 @@ window.addEventListener("load", () => {
     sucessColor,
     outputElement
   );
-  getOneLine(banner);
+  getOneLineRender(banner);
 });
 
 inputElement.addEventListener("keyup", () => {
-  if (commandsArray.indexOf(inputElement.value) != -1) {
+  if (commandsArray.includes(inputElement.value)) {
     inputElement.style.color = sucessColor;
   } else {
     inputElement.style.color = errorColor;
@@ -117,7 +129,7 @@ inputElement.addEventListener("keyup", () => {
 
 inputElement.addEventListener("keypress", (event) => {
   if (inputElement.value != "" && event.key === "Enter") {
-    if (commandsArray.indexOf(inputElement.value) != -1) {
+    if (commandsArray.includes(inputElement.value)) {
       renderPromptWithCommand(
         inputElement.value,
         false,
