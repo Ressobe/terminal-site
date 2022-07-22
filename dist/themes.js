@@ -1,27 +1,21 @@
-var root = document.documentElement;
-var onedark = {
+const onedark = {
     background: "#282c34",
     foreground: "#abb2bf",
     error: "#e06c75",
     sucess: "#98c379",
     primary: "#61afef",
     secondary: "#c678dd",
-    third: "#56b6c2"
+    third: "#56b6c2",
 };
-var newtheme = {
+const newtheme = {
     background: "black",
     foreground: "green",
     error: "red",
     sucess: "white",
     primary: "blue",
     secondary: "purple",
-    third: "pink"
+    third: "pink",
 };
-var defaultTheme = onedark;
-export var sucessColor = defaultTheme.sucess;
-export var errorColor = defaultTheme.error;
-function changeTheme() {
-    for (var key in newtheme) {
-        root.style.setProperty(key, newtheme[key]);
-    }
-}
+let defaultTheme = onedark;
+export let sucessColor = defaultTheme.sucess;
+export let errorColor = defaultTheme.error;

@@ -1,90 +1,102 @@
-import { sucessColor, errorColor } from "./themes.js";
-import { left_side, close_div, close_right, commandsArray, banner, about, software, help, github, project_repo, youtube, loading, } from "./commands.js";
+import { left_side, close_div, close_right, banner, about, software, help, github, project_repo, youtube, loading, } from "./commands-content.js";
 import { renderPromptWithCommand, renderRow } from "./helpers/render-helper.js";
-var outputElement = document.querySelector("#Output");
-var inputElement = document.querySelector("#Input");
-var getOneLine = function (textArray) {
+const outputElement = document.querySelector("#Output");
+const inputElement = document.querySelector("#Input");
+const sucessColor = "#98c379";
+const errorColor = "#e06c75";
+const commandsArray = [
+    "help",
+    "about",
+    "repo",
+    "github",
+    "youtube",
+    "neofetch",
+    "banner",
+    "time",
+    "clear",
+];
+const getOneLineRender = (textArray) => {
     renderRow("<br>", outputElement);
-    for (var line in textArray) {
+    for (let line in textArray) {
         renderRow(textArray[line], outputElement);
     }
     renderRow("<br>", outputElement);
 };
-var getLines = function (row) {
+const getLinesRender = (row) => {
     renderRow("<br>", outputElement);
-    row.forEach(function (element) {
-        renderRow("".concat(left_side, " ").concat(element.left_side, " ").concat(close_right, " ").concat(element.right_side, " ").concat(close_div), outputElement);
+    row.forEach((element) => {
+        renderRow(`${left_side} ${element.left_side} ${close_right} ${element.right_side} ${close_div}`, outputElement);
     });
     renderRow("<br>", outputElement);
 };
-var clear = function () {
+const clear = () => {
     while (outputElement.hasChildNodes()) {
         outputElement.removeChild(outputElement.firstChild);
     }
 };
-var openLink = function (link) {
-    setTimeout(function () {
+const openLink = (link) => {
+    setTimeout(() => {
         window.open(link);
     }, 1500);
 };
-var getTime = function () {
-    var actualDate = new Date();
-    return ["".concat(actualDate.getHours(), ":").concat(actualDate.getMinutes(), " \u23F0")];
+const getTime = () => {
+    const actualDate = new Date();
+    return [`${actualDate.getHours()}:${actualDate.getMinutes()} ⏰`];
 };
-var error = function (text) {
+const error = (text) => {
     return ['<span class="red">' + text + "</span>" + ": command not found"];
 };
-var commands = function (text) {
+const commands = (text) => {
     switch (text) {
         case "help":
-            getLines(help);
+            getLinesRender(help);
             break;
         case "about":
-            getOneLine(about);
+            getOneLineRender(about);
             break;
         case "repo":
-            getOneLine(loading);
+            getOneLineRender(loading);
             openLink(project_repo);
             break;
         case "github":
-            getOneLine(loading);
+            getOneLineRender(loading);
             openLink(github);
             break;
         case "youtube":
-            getOneLine(loading);
+            getOneLineRender(loading);
             openLink(youtube);
             break;
         case "neofetch":
-            getLines(software);
+            getLinesRender(software);
             break;
         case "banner":
-            getOneLine(banner);
+            getOneLineRender(banner);
             break;
         case "time":
-            getOneLine(getTime());
+            getOneLineRender(getTime());
             break;
         case "clear":
             clear();
             break;
         default:
-            getOneLine(error(text));
+            getOneLineRender(error(text));
     }
 };
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
     renderPromptWithCommand("banner", false, errorColor, sucessColor, outputElement);
-    getOneLine(banner);
+    getOneLineRender(banner);
 });
-inputElement.addEventListener("keyup", function () {
-    if (commandsArray.indexOf(inputElement.value) != -1) {
+inputElement.addEventListener("keyup", () => {
+    if (commandsArray.includes(inputElement.value)) {
         inputElement.style.color = sucessColor;
     }
     else {
         inputElement.style.color = errorColor;
     }
 });
-inputElement.addEventListener("keypress", function (event) {
+inputElement.addEventListener("keypress", (event) => {
     if (inputElement.value != "" && event.key === "Enter") {
-        if (commandsArray.indexOf(inputElement.value) != -1) {
+        if (commandsArray.includes(inputElement.value)) {
             renderPromptWithCommand(inputElement.value, false, errorColor, sucessColor, outputElement);
         }
         else {
