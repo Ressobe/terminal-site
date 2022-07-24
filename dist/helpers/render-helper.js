@@ -3,12 +3,9 @@ export const renderPromptWithCommand = (command, error, errorColor, sucessColor,
     const newSpan = document.createElement("span");
     const newDiv = document.createElement("div");
     const textPrompt = "visitor@ressobe.com:~$";
-    if (error) {
-        newSpan.style.color = errorColor;
-    }
-    else {
-        newSpan.style.color = sucessColor;
-    }
+    error
+        ? (newSpan.style.color = errorColor)
+        : (newSpan.style.color = sucessColor);
     newSpan.classList.add("text");
     newSpan.innerHTML = command;
     prompt.className = "prompt";
