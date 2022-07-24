@@ -64,7 +64,12 @@ const openLink = (link: string) => {
 
 const getTime = () => {
   const actualDate = new Date();
-  return [`${actualDate.getHours()}:${actualDate.getMinutes()} ⏰`];
+  let minutes = `${actualDate.getMinutes()}`;
+  if (minutes.length === 1) {
+    minutes = `0${minutes}`;
+  }
+
+  return [`${actualDate.getHours()}:${minutes} ⏰`];
 };
 
 const error = (text: string) => {
