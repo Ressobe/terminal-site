@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
-    <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Ressobe | Terminal</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
   </head>
-  <body> 
+  <body>
     <main>
-      <div id="Output">
-      </div>
-      <div id="terminal">
-          <label class="prompt" for="line">visitor@ressobe.com:~$ </label>
-          <span class="line"> <input id="Input" type="text" class="text" autofocus autocomplete="off" spellcheck="false"></span>
+      <div id="Output"></div>
+      <div>
+        <label class="prompt" for="line">visitor@ressobe.com:~$ </label>
+        <span class="line">
+          <input
+            id="Input"
+            type="text"
+            class="text"
+            autofocus
+            autocomplete="off"
+            spellcheck="false"
+        /></span>
       </div>
     </main>
     <script type="module" src="dist/main.js"></script>
