@@ -4,7 +4,7 @@ export const github: string = "https://github.com/Ressobe";
 export const project_repo: string = "https://github.com/Ressobe/terminalSite";
 export const youtube: string =
   "https://www.youtube.com/channel/UCcWXlahMIEBY9WR11VVELuQ";
-export const version: string = "v1.0";
+export const version: string = "v0.1";
 
 export const left_side: string = "<div class=left_side>";
 const right_side: string = "<div class=right_side>";

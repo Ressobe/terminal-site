@@ -1,4 +1,4 @@
-import { Rows } from "./types/types.js";
+import { Rows } from "./types/types";
 import {
   left_side,
   close_div,
