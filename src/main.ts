@@ -133,7 +133,7 @@ inputElement.addEventListener("keyup", () => {
 });
 
 inputElement.addEventListener("keypress", (event) => {
-  if (inputElement.value != "" && event.key === "Enter") {
+  if (inputElement.value !== "" && event.key === "Enter") {
     if (commandsArray.includes(inputElement.value)) {
       renderPromptWithCommand(
         inputElement.value,
