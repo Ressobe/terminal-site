@@ -1,6 +1,5 @@
-# Project Title
+# Terminal Style Website
 
-Terminal style website
 ![screenshot](terminal.png)
 
 ## Description
